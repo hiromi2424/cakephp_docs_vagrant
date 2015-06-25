@@ -123,17 +123,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # end
   config.vm.provision :chef_solo do |chef|
 
-    chef.cookbooks_path = ["chef/site-cookbooks", "chef/cookbooks"]
+    chef.cookbooks_path = ["site-cookbooks", "cookbooks"]
 
     chef.json =	{
     }
 
-    chef.add_recipe "yum::yum"
-    chef.add_recipe "yum::epel"
-    chef.add_recipe "yum::remi"
-    chef.add_recipe "ulimit"
-    chef.add_recipe "git"
-    chef.add_recipe "python"
+    chef.add_recipe "yum"
+    chef.add_recipe "packages"
 
   end
 
